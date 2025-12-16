@@ -102,6 +102,11 @@ class Controlador {
     const pageW = doc.internal.pageSize.getWidth();
     const marginX = 40;
 
+    // ===== LOGO =====
+    const logo = new Image();
+    logo.src = "img/procero.png"; // usa PNG
+
+
     const toNumber = (txt) => {
       if (txt == null) return NaN;
       const t = String(txt).trim()
@@ -112,16 +117,28 @@ class Controlador {
       return isNaN(n) ? NaN : n;
     };
 
+    // ===== LOGO EN EL PDF (firma empresa) =====
+    const logoWidth = 60;    // 🔹 más pequeño
+    const logoHeight = 20;   // 🔹 proporcional
+    const logoX = marginX;   // 🔹 alineado a la izquierda
+    const logoY = 20;
+
+    doc.addImage(logo, "PNG", logoX, logoY, logoWidth, logoHeight);
+
+
+
+
     // ====== Título ======
     doc.setFont("helvetica", "bold");
     doc.setFontSize(16);
-    doc.text("Reporte de Volumen de Concreto", pageW / 2, 40, { align: "center" });
+    doc.text("Reporte de Volumen de Concreto", pageW / 2, 70, { align: "center" });
+
 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(9);
     doc.text(`Generado: ${new Date().toLocaleString()}`, pageW - marginX, 58, { align: "right" });
 
-    let y = 80;
+    let y = 100;
     let totalGeneral = 0;
 
     bloques.forEach((bloque, idx) => {

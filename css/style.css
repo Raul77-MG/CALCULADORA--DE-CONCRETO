@@ -8,6 +8,39 @@
     font-family: Arial, sans-serif;
 }
 
+
+.logo-empresa img {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.logo-empresa img {
+    width: 150px;      /* tamaño ideal */
+    height: auto;      /* mantiene proporción */
+    display: inline-block;
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 0;
+}
+
+.logo-empresa a {
+    display: inline-block;
+}
+
+.logo-empresa img {
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo-empresa img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+
+
 /* =============================
    Título
 ============================= */
