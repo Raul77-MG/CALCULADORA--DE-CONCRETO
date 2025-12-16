@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Concreto</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="contenedor">
+  <h1 class="titulo">Calculadora de Volumen de Concreto</h1>
+
+  <!-- NUEVO: layout 2 columnas -->
+  <div class="layout">
+    <!-- FORMULARIO -->
+    <div class="card formulario">
+        <label>Tipo de Elemento</label>
+        <select id="tipo">
+            <option value="Columna">Columna</option>
+            <option value="Viga">Viga</option>
+            <option value="Losa">Losa</option>
+            <option value="Placa">Placa</option>
+            <option value="Zapata">Zapata</option>
+        </select>
+
+        <label for="descripcion">Descripción</label>
+        <input id="descripcion" type="text" placeholder="Ej: Columna interior">
+
+        <label for="veces">N° de veces</label>
+        <input id="veces" type="number" min="1" value="1">
+
+        <label for="largo">Largo (m)</label>
+        <input id="largo" type="number" step="0.01">
+
+        <label for="ancho">Ancho (m)</label>
+        <input id="ancho" type="number" step="0.01">
+
+        <label for="alto">Alto (m)</label>
+        <input id="alto" type="number" step="0.01">
+
+        <button id="agregar" type="button" class="btn-primary">Agregar</button>
+    </div>
+
+
+    <!-- NUEVO: PREVIEW -->
+    <aside class="card preview-card" id="previewCard">
+      <div class="preview-head">
+        <h2 class="preview-title">Vista previa</h2>
+        <span class="preview-badge" id="previewTipo">—</span>
+      </div>
+
+      <div class="preview-imgWrap">
+        <img id="previewImg" src="" alt="Vista previa" style="display:none;" />
+      </div>
+
+      <div class="preview-info" id="previewInfo">
+        <div class="preview-row"><span>Descripción:</span> <b id="previewDesc">—</b></div>
+        <div class="preview-row"><span>Dimensiones (m):</span> <b id="previewDims">—</b></div>
+        <div class="preview-row"><span>Volumen unitario:</span> <b id="previewVol">0.000</b> m³</div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- TABLAS -->
+  <div class="card tabla-card">
+    <div id="tablas"></div>
+    <div id="totalGeneral" class="total-box">Total General: 0.00 m³</div>
+  </div>
+</div>
+
+
+<!-- ✔ BOTONES FUERA DEL FORMULARIO Y CON TYPE="BUTTON" -->
+<div class="export-container">
+    <button id="btnPDF" type="button" class="export-btn">
+        <img src="img/pdf.png">
+    </button>
+
+    <button id="btnExcel" type="button" class="export-btn">
+        <img src="img/excel.png">
+    </button>
+</div>
+
+
+<!-- LIBRERÍAS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+
+<!-- jsPDF (UMD) -->
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+<!-- jsPDF AutoTable (PLUGIN) -->
+<script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+
+<!-- Tu código -->
+<script src="controlador.js"></script>
+
+
+
+<!-- ARCHIVOS MVC -->
+<script src="vista/vista.js"></script>
+<script src="modelo/modelo.js"></script>
+<script src="controlador/controlador.js"></script>
+
+</body>
+</html>

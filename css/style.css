@@ -1,0 +1,267 @@
+/* =============================
+   Contenedor principal
+============================= */
+.contenedor {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+/* =============================
+   Título
+============================= */
+.titulo {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* =============================
+   Formularios
+============================= */
+.card.formulario {
+    background-color: #f7f7f7;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+/* Etiquetas más pequeñas */
+.card.formulario label {
+    margin-bottom: 2px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+/* Inputs más compactos */
+.card.formulario input,
+.card.formulario select {
+    padding: 5px 8px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Botón agregar */
+.btn-primary {
+    grid-column: 1 / -1; /* ocupa toda la fila */
+    padding: 8px;
+    font-size: 0.9rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+/* =============================
+   Tablas
+============================= */
+.card.tabla-card {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+.card.tabla-card h2 {
+    margin-top: 0;
+    color: #34495e;
+    font-size: 1.1rem;
+}
+
+/* Tablas estilizadas */
+.card.tabla-card table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.card.tabla-card th, 
+.card.tabla-card td {
+    border: 1px solid #ddd;
+    padding: 6px 8px;
+    text-align: center;
+}
+
+/* Encabezados */
+.card.tabla-card th {
+    background-color: #00af74;
+    color: white;
+    font-weight: bold;
+}
+
+/* Fila subtotal */
+.fila-subtotal {
+    background-color: #ecf0f1;
+    font-weight: bold;
+}
+
+/* Botón eliminar */
+.btn-eliminar {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-eliminar:hover {
+    color: #c0392b;
+}
+
+/* Total general */
+.total-box {
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: right;
+    font-size: 0.95rem;
+    color: #2c3e50;
+}
+/* =============================
+   Botones Exportar (PDF / XLS)
+============================= */
+.export-container {
+    width: 100%;              
+    display: flex;
+    justify-content: center;  
+    gap: 10px;
+    margin: 20px 0;
+}
+
+
+.export-btn {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 4px 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.export-btn img {
+    width: 38px;
+    height: auto;
+    display: block;
+}
+
+.export-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Layout 2 columnas: formulario + preview */
+.layout{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 900px){
+  .layout{ grid-template-columns: 1fr; }
+}
+
+/* Preview card */
+.preview-card{
+  padding: 14px;
+  border-radius: 14px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+.preview-head{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  margin-bottom: 10px;
+}
+
+.preview-title{
+  margin:0;
+  font-size: 1.05rem;
+  color:#34495e;
+}
+
+.preview-badge{
+  font-size: .8rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #1d4ed8;
+  border: 1px solid #dbeafe;
+}
+
+/* Imagen preview */
+.preview-imgWrap{
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+  background: #f8fafc;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.preview-imgWrap img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.preview-card.is-updating .preview-imgWrap img{
+  opacity: .35;
+  transform: scale(0.98);
+}
+
+/* Info */
+.preview-info{
+  margin-top: 12px;
+  font-size: .92rem;
+  color:#2c3e50;
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preview-row{
+  display:flex;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid #eef2f7;
+  padding-top: 8px;
+}
+
+.preview-row span{
+  color:#64748b;
+}
+
+#previewImg{
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+.preview-imgWrap{
+  height: 220px !important;
+  background: #f8fafc;
+}
