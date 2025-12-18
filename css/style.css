@@ -298,3 +298,107 @@
   height: 220px !important;
   background: #f8fafc;
 }
+/* =========================================================
+   RESPONSIVE SOLO MÓVIL (no afecta PC)
+   Pegar al FINAL del CSS
+========================================================= */
+
+/* Tablets y móviles */
+@media (max-width: 768px) {
+  .contenedor{
+    margin: 10px auto;
+    padding: 10px 12px;
+  }
+
+  /* El layout 2 columnas ya colapsa a 1 en 900px (ok),
+     aquí solo afinamos espaciados en móvil/tablet */
+  .layout{
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* Preview un poco más compacto */
+  .preview-card{
+    padding: 12px;
+    border-radius: 12px;
+  }
+  .preview-imgWrap{
+    height: 200px !important;
+  }
+
+  /* Botones export: permitir salto de línea si no entra */
+  .export-container{
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 576px) {
+
+  /* Logo + título */
+  .logo-empresa img{
+    width: 120px;
+  }
+  .titulo{
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+  }
+
+  /* Formulario: de 2 columnas a 1 columna */
+  .card.formulario{
+    grid-template-columns: 1fr;
+    grid-gap: 8px;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  /* Inputs más cómodos en touch */
+  .card.formulario input,
+  .card.formulario select{
+    padding: 10px 10px;
+    font-size: 1rem; /* mejor en móvil */
+  }
+
+  /* Botón principal grande y full width (ya ocupa fila, aquí solo altura) */
+  .btn-primary{
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  /* Tablas: scroll horizontal suave si hay muchas columnas */
+  .card.tabla-card{
+    padding: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .card.tabla-card table{
+    font-size: 0.82rem;
+    min-width: 560px; /* fuerza scroll en móviles si es necesario */
+  }
+
+  .card.tabla-card th,
+  .card.tabla-card td{
+    padding: 8px 8px;
+    white-space: nowrap; /* evita que se rompa feo */
+  }
+
+  /* Total: que no se salga */
+  .total-box{
+    font-size: 1rem;
+    text-align: left;
+    margin-top: 12px;
+  }
+
+  /* Preview: más bajo para evitar scroll excesivo */
+  .preview-imgWrap{
+    height: 170px !important;
+  }
+
+  .preview-row{
+    flex-direction: column; /* filas tipo “label arriba / valor abajo” */
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
